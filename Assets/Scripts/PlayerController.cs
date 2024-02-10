@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float punchCooldown = 0.1f;
     [SerializeField] float punchDuration = 0.1f;
     [SerializeField] float faceTowards;
+
     [SerializeField] GameObject punchObject;
+    [SerializeField] Animator spriteAnimator;
 
     private Rigidbody2D rb;
     private float timer;
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        spriteAnimator.SetFloat("speed", rb.velocity.magnitude);
+
         if (timer <= -punchCooldown)
         {
             if (Input.GetKey(KeyCode.Mouse0))
