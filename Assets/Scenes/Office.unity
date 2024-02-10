@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 169491101}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,6 +297,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  hrViol: 0
+  propDmg: 0
+  chicken: 0
 --- !u!4 &169491102
 Transform:
   m_ObjectHideFlags: 0
