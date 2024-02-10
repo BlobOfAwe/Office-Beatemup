@@ -24,6 +24,7 @@ public class DestructibleObject : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        canvas = GameObject.Find("WorldCanvas").GetComponent<Transform>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +36,7 @@ public class DestructibleObject : MonoBehaviour
             particle.Play();
             gameManager.score += pointValue;
             pointText = Instantiate(pointTextPrefab, canvas);
+            pointText.transform.position = transform.position;
             pointText.GetComponent<TextMeshPro>().text = pointValue.ToString();
             StartCoroutine("Regenerate");
         }
