@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DestructibleObject : MonoBehaviour
 {
     private ParticleSystem particle;
     private SpriteRenderer sprite;
     private BoxCollider2D boxCollider;
+    private GameManager gameManager;
 
     [SerializeField] float regenTime = 10;
+    [SerializeField] int pointValue = 100;
+    [SerializeField] Transform canvas;
+    [SerializeField] GameObject pointTextPrefab;
+    
+    private GameObject pointText;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +23,7 @@ public class DestructibleObject : MonoBehaviour
         particle = GetComponent<ParticleSystem>();
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +33,9 @@ public class DestructibleObject : MonoBehaviour
             sprite.enabled = false;
             boxCollider.enabled = false;
             particle.Play();
+            gameManager.score += pointValue;
+            pointText = Instantiate(pointTextPrefab, canvas);
+            pointText.GetComponent<TextMeshPro>().text = pointValue.ToString();
             StartCoroutine("Regenerate");
         }
     }
