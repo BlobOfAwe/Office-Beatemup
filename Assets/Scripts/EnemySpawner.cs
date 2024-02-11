@@ -1,28 +1,35 @@
- public GameObject enemy;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
- public float timer;
+public class EnemySpawner : MonoBehaviour
+{
+    public GameObject enemy;
 
- // Start is called before the first frame update
- void Start()
- {
-     Instantiate(enemy, this.transform);
- }
+    public float timer;
 
- // Update is called once per frame
- void FixedUpdate()
- {
+    // Start is called before the first frame update
+    void Start()
+    {
+        Instantiate(enemy, this.transform);
+    }
 
-     if (transform.childCount == 0)
-     {
-         timer -= Time.fixedDeltaTime;
+    // Update is called once per frame
+    void FixedUpdate()
+    {
 
-         if (timer <= 0)
-         {
-             Instantiate(enemy, this.transform);
+        if (transform.childCount == 0)
+        {
+            timer -= Time.fixedDeltaTime;
 
-             timer = 10;
-         }
-     }
+            if (timer <= 0)
+            {
+                Instantiate(enemy, this.transform);
 
-     
- }
+                timer = 10;
+            }
+        }
+
+        
+    }
+}
