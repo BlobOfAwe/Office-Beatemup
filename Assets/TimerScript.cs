@@ -4,16 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 public class TimerScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-      public float timeremaining = 60;
-      public bool timerisrunning = false;
-      public Text Timerseconds;
+    public float timeremaining = 60;
+    public bool timerisrunning = false;
+    public Text Timerseconds;
         
     void Start()
     {// starts the clock automatically, should tweak it so that the clock starts when the game starts (like from the menu)
@@ -35,10 +34,11 @@ public class TimerScript : MonoBehaviour
             }
             else
             {
-                
+                //Gameoverscreen or pause game and gameoverscreen when the time runs out
+
                 timeremaining = 0;
                 timerisrunning = false;
-                SceneManager.LoadScene("GameOver");
+
             }
 
 
