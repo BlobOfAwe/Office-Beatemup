@@ -5,6 +5,7 @@ using TMPro;
 
 public class DestructibleObject : MonoBehaviour
 {
+    private enum ObjectType { Property, Coworker, Chicken };
     private ParticleSystem particle;
     private SpriteRenderer sprite;
     private BoxCollider2D boxCollider;
@@ -14,6 +15,8 @@ public class DestructibleObject : MonoBehaviour
     [SerializeField] int pointValue = 100;
     [SerializeField] Transform canvas;
     [SerializeField] GameObject pointTextPrefab;
+    [SerializeField] ObjectType objectType;
+    
     
     private GameObject pointText;
 
@@ -35,6 +38,12 @@ public class DestructibleObject : MonoBehaviour
             boxCollider.enabled = false;
             particle.Play();
             gameManager.score += pointValue;
+            
+            if (objectType == ObjectType.Property) { gameManager.propDmg += 1; }
+            else if (objectType == ObjectType.Coworker) { gameManager.hrViol += 1; }
+            else if (objectType == ObjectType.Chicken) { gameManager.chicken += 1; }
+            else { Debug.LogError(gameObject + " invalid object type: " + objectType); }
+
             pointText = Instantiate(pointTextPrefab, canvas);
             pointText.transform.position = transform.position;
             pointText.GetComponent<TextMeshPro>().text = pointValue.ToString();
