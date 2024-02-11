@@ -1,38 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ public GameObject enemy;
 
-public class EnemySpawner : MonoBehaviour
-{
-    public GameObject enemy;
+ public float timer;
 
-    public float timer;
+ // Start is called before the first frame update
+ void Start()
+ {
+     Instantiate(enemy, this.transform);
+ }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        hasEnemy = true;
-        Instantiate(enemy, this.transform);
-    }
+ // Update is called once per frame
+ void FixedUpdate()
+ {
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(this.gameObject.transform.GetChild(0).tag != "Coworker")
-        {
-            timer -= Time.fixedDeltaTime;
+     if (transform.childCount == 0)
+     {
+         timer -= Time.fixedDeltaTime;
 
-            if (timer <= 0)
-            {
-                Instantiate(enemy, this.transform);
+         if (timer <= 0)
+         {
+             Instantiate(enemy, this.transform);
 
-                timer = 10;
-            }
-        }
-        else
-        {
-            timer = 10;
-        }
-        
-    }
-}
+             timer = 10;
+         }
+     }
+
+     
+ }
