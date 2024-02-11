@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
@@ -38,6 +38,7 @@ public class TimerScript : MonoBehaviour
 
                 timeremaining = 0;
                 timerisrunning = false;
+                SceneManager.LoadScene("GameOver");
 
             }
 
