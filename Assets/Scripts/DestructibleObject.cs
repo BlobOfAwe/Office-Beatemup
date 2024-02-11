@@ -16,6 +16,7 @@ public class DestructibleObject : MonoBehaviour
     [SerializeField] Transform canvas;
     [SerializeField] GameObject pointTextPrefab;
     [SerializeField] ObjectType objectType;
+    [SerializeField] int health = 1;
     
     
     private GameObject pointText;
@@ -34,11 +35,29 @@ public class DestructibleObject : MonoBehaviour
     {
         if (other.CompareTag("Destroyer"))
         {
+            Health(10);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Destroyer"))
+        {
+            sprite.color = Color.red;
+        }
+    }
+
+    void Health(int h)
+    {
+        health -= h;
+
+        if (health <= 0)
+        {
             sprite.enabled = false;
             boxCollider.enabled = false;
             particle.Play();
             gameManager.score += pointValue;
-            
+
             if (objectType == ObjectType.Property) { gameManager.propDmg += 1; }
             else if (objectType == ObjectType.Coworker) { gameManager.hrViol += 1; }
             else if (objectType == ObjectType.Chicken) { gameManager.chicken += 1; }
