@@ -8,7 +8,7 @@ public class Camerashake : MonoBehaviour
 {
 
     public static Camerashake Instance {get; private set;}
-    private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     private float shaketimer;
 
     private void Awake()

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class healthbar : MonoBehaviour
@@ -11,51 +12,40 @@ public class healthbar : MonoBehaviour
     // Start is called before the first frame update
 
     public Image Healthbar;
-    public float healthamount = 100f;
-
-
-
-
-    void Start()
-    {
-        
-        
-    }
+    public float healthAmount = 100f;
 
     // Update is called once per frame
     void Update()
     {
      if ( Input.GetKeyDown(KeyCode.T ) )
         {
-            takedamage(10);
+            TakeDamage(10);
         }
 
         if ( Input.GetKeyDown(KeyCode.Space) )
         {
-            heal(5);
+            Heal(5);
         }
 
-        if (healthamount <= 0){
+        if (healthAmount <= 0){
 
-            Application.LoadLevel(Application.loadedLevel);
-
-
+            SceneManager.LoadScene("GameOver");
         }
     }
 
-    public void takedamage (float damage){
+    public void TakeDamage (float damage){
        
 
-        healthamount -= damage;
-        Healthbar.fillAmount = healthamount/100f;
+        healthAmount -= damage;
+        Healthbar.fillAmount = healthAmount/100f;
         Camerashake.Instance.shakecamera(5f, .1f);
 
     }
 
-    public void heal (float healing){
+    public void Heal (float healing){
 
-        healthamount += healing;
-        healthamount = Mathf.Clamp(healthamount,0,100);
-        Healthbar.fillAmount = healthamount/100f;
+        healthAmount += healing;
+        healthAmount = Mathf.Clamp(healthAmount,0,100);
+        Healthbar.fillAmount = healthAmount/100f;
     }
 }
