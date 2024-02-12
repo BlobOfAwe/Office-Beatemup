@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class TimerScript : MonoBehaviour
@@ -34,7 +35,7 @@ public class TimerScript : MonoBehaviour
             }
             else
             {
-                //Gameoverscreen or pause game and gameoverscreen when the time runs out
+                SceneManager.LoadScene("GameOver");
 
                 timeremaining = 0;
                 timerisrunning = false;

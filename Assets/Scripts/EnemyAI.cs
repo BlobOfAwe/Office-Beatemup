@@ -96,7 +96,10 @@ public class EnemyAI : MonoBehaviour
 
     void Health(int h)
     {
-        health -= h;       
+        health -= h;
+        avoid = player.transform;
+        backTrack = true;
+        
 
         if (health <= 0)
         {

@@ -30,23 +30,23 @@ public class ScoreManager : MonoBehaviour
 
         switch (gameManager.score)
         {
-            case int i when i < 5000:
+            case int i when i < 7000:
                 scoreRank.AssignRank(0);
                 scoreRank_Internal = 0;
                 break;
-            case int i when i < 7000:
+            case int i when i < 10000:
                 scoreRank.AssignRank(1);
                 scoreRank_Internal = 1;
                 break;
-            case int i when i < 9000:
+            case int i when i < 12000:
                 scoreRank.AssignRank(2);
                 scoreRank_Internal = 2;
                 break;
-            case int i when i < 11000:
+            case int i when i < 15000:
                 scoreRank.AssignRank(3);
                 scoreRank_Internal = 3;
                 break;
-            case int i when i < 14000:
+            case int i when i < 16000:
                 scoreRank.AssignRank(4);
                 scoreRank_Internal = 4;
                 break;
@@ -62,19 +62,19 @@ public class ScoreManager : MonoBehaviour
                 propRank.AssignRank(0);
                 propRank_Internal = 0;
                 break;
-            case int i when i < 55:
+            case int i when i < 45:
                 propRank.AssignRank(1);
                 propRank_Internal = 1;
                 break;
-            case int i when i < 70:
+            case int i when i < 60:
                 propRank.AssignRank(2);
                 propRank_Internal = 2;
                 break;
-            case int i when i < 95:
+            case int i when i < 75:
                 propRank.AssignRank(3);
                 propRank_Internal = 3;
                 break;
-            case int i when i < 125:
+            case int i when i < 100:
                 propRank.AssignRank(4);
                 propRank_Internal = 4;
                 break;
@@ -86,23 +86,23 @@ public class ScoreManager : MonoBehaviour
 
         switch (gameManager.hrViol)
         {
-            case int i when i < 30:
+            case int i when i < 5:
                 hrRank.AssignRank(0);
                 hrRank_Internal = 0;
                 break;
-            case int i when i < 55:
+            case int i when i < 8:
                 hrRank.AssignRank(1);
                 hrRank_Internal = 1;
                 break;
-            case int i when i < 70:
+            case int i when i < 12:
                 hrRank.AssignRank(2);
                 hrRank_Internal = 2;
                 break;
-            case int i when i < 95:
+            case int i when i < 15:
                 hrRank.AssignRank(3);
                 hrRank_Internal = 3;
                 break;
-            case int i when i < 125:
+            case int i when i < 17:
                 hrRank.AssignRank(4);
                 hrRank_Internal = 4;
                 break;

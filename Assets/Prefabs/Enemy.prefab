@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfaf88eba1912c45abd109cc38240fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointValue: 100
+  pointValue: 500
   canvas: {fileID: 0}
   objectType: 1
   pointTextPrefab: {fileID: 2098026748114165956, guid: 15672cd7ba9237f4c9150ff17c198eab, type: 3}
