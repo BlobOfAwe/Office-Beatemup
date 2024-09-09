@@ -9,7 +9,7 @@ public class DestructibleObject : MonoBehaviour
     private ParticleSystem particle;
     private SpriteRenderer sprite;
     private BoxCollider2D boxCollider;
-    private GameManager gameManager;
+    [SerializeField] GameManager gameManager;
 
     [SerializeField] float regenTime = 10;
     [SerializeField] int pointValue = 100;

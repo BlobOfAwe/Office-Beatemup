@@ -141,5 +141,7 @@ public class ScoreManager : MonoBehaviour
         hrViol.text = gameManager.hrViol.ToString();
         propDmg.text = gameManager.propDmg.ToString();
         chicken.text = gameManager.chicken.ToString();
+
+        Object.Destroy(gameManager.gameObject);
     }
 }
